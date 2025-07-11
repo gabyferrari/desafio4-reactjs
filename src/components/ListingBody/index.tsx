@@ -8,7 +8,7 @@ export default function ListingBody() {
   return (
     <main>
       <section>
-        <CardFilter />
+            <CardFilter />
         <div className="card-list container mt20">
         {
             productService.findAll().map(

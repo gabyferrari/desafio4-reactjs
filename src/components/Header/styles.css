@@ -19,4 +19,10 @@ header {
 
 .navbar-right {
     font-size: 12px;
+    font-weight: 700;
+    display: flex;
+}
+
+.list-count {
+    margin-right: 4px;
 }

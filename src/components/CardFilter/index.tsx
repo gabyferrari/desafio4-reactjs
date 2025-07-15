@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./styles.css";
+import { ContextListCount } from "../../utils/context-list";
+import * as productService from '../../services/product-service'
 
 type FormData = {
   minPrice?: number;
@@ -11,7 +13,10 @@ type Props = {
 }
 
 export default function CardFilter({onFilter} : Props) {
+
   const [formData, setFormData] = useState<FormData>({});
+
+  const {setContextListCount} = useContext(ContextListCount);
 
   function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
     const value = event.target.value;
@@ -20,6 +25,7 @@ export default function CardFilter({onFilter} : Props) {
   }
 
   function handleFormSubmit(event: React.FormEvent<HTMLFormElement>) {
+
     event.preventDefault();
 
     const minInput = String(formData.minPrice);
@@ -30,6 +36,8 @@ export default function CardFilter({onFilter} : Props) {
 
     const validMin = isNaN(min) ? 0 : min;
     const validMax = isNaN(max) ? Number.MAX_VALUE : max;
+
+    setContextListCount(productService.findByPrice(validMin, validMax).length);
 
     onFilter(validMin, validMax);
 

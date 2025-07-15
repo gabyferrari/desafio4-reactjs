@@ -6,11 +6,6 @@ export function findByPrice(min: number, max: number): ProductDTO[] {
     .sort((x, y) => x.price - y.price);
 }
 
-export function findAll(): ProductDTO[] {
-  return products
-  .sort((a, b) => a.price - b.price);
-}
-
 const products: ProductDTO[] = [
   {
     id: 1,

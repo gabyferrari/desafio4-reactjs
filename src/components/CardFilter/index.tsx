@@ -21,6 +21,18 @@ export default function CardFilter({onFilter} : Props) {
 
   function handleFormSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    const minInput = String(formData.minPrice);
+    const maxInput = String(formData.maxPrice);
+
+    const min = minInput.trim() !== "" ? Number(minInput) : 0;
+    const max = maxInput.trim() !== "" ? Number(maxInput) : Number.MAX_VALUE;
+
+    const validMin = isNaN(min) ? 0 : min;
+    const validMax = isNaN(max) ? Number.MAX_VALUE : max;
+
+    onFilter(validMin, validMax);
+
   }
 
   return (

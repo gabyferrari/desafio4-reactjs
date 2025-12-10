@@ -1,9 +1,14 @@
 ## Layout Figma
-https://www.figma.com/design/igQqM14f9sP17jyo54Y8vL/DesafioGithubAPI?node-id=0-1&p=f&t=ir6TmWbrKePAInIa-0
+https://www.figma.com/file/s21JDtjv3cRyUfetFYAzIJ/DSFilter
 
 ## Critérios de correção
-1) Duas páginas com rotas funcionando, navegando entre elas;
-2) Quando buscar um usuário que existe, os dados do usuário devem aparecer conforme layout;
-3) Quando buscar um usuário que não existe, deve aparecer uma mensagem conforme layout.
-
-Opcional: deixe seu layout responsivo.
+1) O projeto deve conter os componentes principais (pode haver outros conforme você quiser):
+ - Cabeçalho
+ - Corpo da tela de listagem
+ - Card de filtro
+ - Card de listagem
+2) A lista de produtos deve ser passada como Prop para o card de listagem.
+3) O card de filtro deve emitir um evento onFilter(min, max). Este evento serve para comunicar os preços mínimo
+e máximo sempre que o formulário for submetido.
+4) Context API utilizada para manter o estado global do número de produtos mostrados na tela. Sempre que
+for feita uma nova filtragem e o número de produtos listados mudar, o número deve ser atualizado no cabeçalho.
